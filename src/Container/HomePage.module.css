@@ -1,0 +1,18 @@
+.title{
+    color: white;
+    text-align: center;
+}
+
+.subheading{
+    color: white;
+}
+
+.input{
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.input:focus{
+    outline: none;
+}
