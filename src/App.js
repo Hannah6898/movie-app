@@ -1,6 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import HomePage from './Container/HomePage';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
 const [data, setData] = useState();
@@ -38,9 +44,14 @@ function searchMedia (e){
 }
 
   return (
+    <Router>
     <div className="App">
+      <Route path="/">
    <HomePage data={data} handleChange={handleChange} searchMedia={searchMedia} />
+   </Route>
+   <Route path="details"></Route>
     </div>
+    </Router>
   );
 }
 
