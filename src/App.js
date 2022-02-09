@@ -1,57 +1,61 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
-import HomePage from './Container/HomePage';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import HomePage from "./Container//HomePage/HomePage";
+import Details from "./Container/Details/Details";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
-const [data, setData] = useState();
-const [search, setSearch]=useState();
+  const [data, setData] = useState();
+  const [search, setSearch] = useState();
 
-//Get data 
-useEffect(()=>{
-  
-      fetch('http://www.omdbapi.com/?apikey=ae3fd08d&i=tt1285016')
-      .then((res)=>{
+  //Get data
+  useEffect(() => {
+    fetch("http://www.omdbapi.com/?apikey=ae3fd08d&i=tt1285016")
+      .then((res) => {
         return res.json();
       })
-      .then((data)=>{
-        setData(data)
+      .then((data) => {
+        setData(data);
+      });
+  }, []);
+
+  //Search bar
+  function handleChange(event) {
+    // console.log(event.target.value)
+    setSearch(event.target.value);
+    console.log(search);
+  }
+
+  function searchMedia(e) {
+    e.preventDefault();
+    fetch(`http://img.omdbapi.com/?s=${search}&apikey=ae3fd08d`)
+      .then((res) => {
+        return res.json();
       })
-},[]);
-
-//Search bar 
-function handleChange(event){
-  // console.log(event.target.value)
-  setSearch(event.target.value);
-  console.log(search);
-}
-
-function searchMedia (e){
-  e.preventDefault();
-  fetch(`http://img.omdbapi.com/?s=${search}&apikey=ae3fd08d`)
-  .then((res)=>{
-    return res.json();
-  })
-  .then((searchData)=>{
-    setData(searchData)
-    console.log(searchData)
-  })
-}
+      .then((searchData) => {
+        setData(searchData);
+        console.log(searchData);
+      });
+  }
 
   return (
-    <Router>
     <div className="App">
-      <Route path="/">
-   <HomePage data={data} handleChange={handleChange} searchMedia={searchMedia} />
-   </Route>
-   <Route path="details"></Route>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                data={data}
+                handleChange={handleChange}
+                searchMedia={searchMedia}
+              />
+            }
+          />
+          <Route path="/details" element={<Details />} />
+        </Routes>
+      </Router>
     </div>
-    </Router>
   );
 }
 
@@ -69,3 +73,4 @@ export default App;
 
 //http://www.omdbapi.com/?apikey=ae3fd08d&i=tt1285016
 
+// data={data} handleChange={handleChange} searchMedia={searchMedia}
