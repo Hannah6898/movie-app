@@ -10,12 +10,12 @@ function App() {
 
   //Get data
   useEffect(() => {
-    fetch("http://www.omdbapi.com/?apikey=ae3fd08d&i=tt1285016")
+    fetch("http://www.omdbapi.com/?s=star wars&apikey=ae3fd08d")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        setData(data);
+        setData(data.Search);
       });
   }, []);
 
@@ -39,7 +39,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App m-5">
       <Router>
         <Routes>
           <Route

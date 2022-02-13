@@ -3,7 +3,7 @@
     color: white;
 }
 
-.img{
-    width: 207px;
-    height: 313px;
+.image-carousel > .row{
+    overflow-x: auto;
+    flex-wrap: nowrap;
 }
