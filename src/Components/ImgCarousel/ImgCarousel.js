@@ -4,14 +4,15 @@ import Movie from "./Movie/Movie"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function ImgCarousel(props) {
-  console.log(props.data);
 
   return (
     <div>
       <h2 className={classes.heading}>{props.heading}</h2>
       <div className="container-fluid image-carousel">
         <div className="row">
+          <div className="d-flex justify-content-start movies">
          <Movie data={props.data}/>
+         </div>
         </div>
       </div>
     </div>

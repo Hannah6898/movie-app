@@ -19,24 +19,24 @@ function App() {
       });
   }, []);
 
-  //Search bar
-  function handleChange(event) {
-    // console.log(event.target.value)
-    setSearch(event.target.value);
-    console.log(search);
-  }
+  // //Search bar
+  // function handleChange(event) {
+  //   // console.log(event.target.value)
+  //   setSearch(event.target.value);
+  //   console.log(search);
+  // }
 
-  function searchMedia(e) {
-    e.preventDefault();
-    fetch(`http://img.omdbapi.com/?s=${search}&apikey=ae3fd08d`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((searchData) => {
-        setData(searchData);
-        console.log(searchData);
-      });
-  }
+  // function searchMedia(e) {
+  //   e.preventDefault();
+  //   fetch(`http://img.omdbapi.com/?s=${search}&apikey=ae3fd08d`)
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((searchData) => {
+  //       setData(searchData);
+  //       console.log(searchData);
+  //     });
+  // }
 
   return (
     <div className="App m-5">
@@ -47,8 +47,8 @@ function App() {
             element={
               <HomePage
                 data={data}
-                handleChange={handleChange}
-                searchMedia={searchMedia}
+                // handleChange={handleChange}
+                // searchMedia={searchMedia}
               />
             }
           />
