@@ -3,7 +3,22 @@
     color: white;
 }
 
-.movies{
+.image-carousel{
+    border: 5px solid white;
+   
+}
+.row{
+    border: 1px solid white;
+ 
+}
+.movie{
+    border: 1px solid white;
+}
+
+
+.image-carousel > .row{
     overflow-x: auto;
     flex-wrap: nowrap;
 }
+
+   
