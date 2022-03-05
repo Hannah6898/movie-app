@@ -1,0 +1,16 @@
+.header{
+        color: #FFFFFF;
+}
+.header h1{ 
+    font-size: 24px;
+    margin-right: 50px;
+}
+.header h2 {
+    font-size: 18px;
+}
+
+.header h1, h2{
+    display: inline;
+}
+
+

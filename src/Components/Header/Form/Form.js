@@ -1,10 +1,10 @@
 import React from "react";
-import classes from "./Header.module.css";
+import classes from "./Form.module.css";
 
 function Form(props) {
   return (
     <div>
-      <form onSubmit={props.searchMedia}>
+      <form>
         <input
           type="text"
           className={classes.input}

@@ -1,12 +1,12 @@
 .container{
     display: flex;
     justify-content: space-between;
-}
+} 
 
-.details{
+/* .details{
     display: flex;
     justify-content: space-between;
-}
+}  */
 
 .backbtn{
 background: #FFFFFF;
@@ -16,48 +16,6 @@ border-radius: 5px;
 font-size: 18px;
 }
 
-.favouritebtn{
-color: #F5CA37;
-padding: 10px;
-border: 3px solid #F5CA37;
-box-sizing: border-box;
-border-radius: 10px;
-font-size: 18px;
-}
 
-.details h1, h2,h3{
-    color: #FFFFFF;
-}
 
-.header{
-    display: flex;
-    justify-content: space-between;
-}
 
-.details h1{
-    font-size: 24px;
-}
-
-.details h2 {
-    font-size: 18px;
-}
-
-.details h3 {
-    font-size: 20px;
-}
-
-.image{
-    width: 349px;
-}
-
-i{
-    color: #F5CA37;
-}
-
-.genre{
-    border: 3px solid #FFFFFF;
-    box-sizing: border-box;
-    border-radius: 15px;
-    color: white;
-    padding: 5px;
-}
