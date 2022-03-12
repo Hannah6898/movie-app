@@ -8,3 +8,7 @@ font-size: 20px;
 .movieRating i {
     color: #F5CA37;
 }
+
+.movieRating{
+  margin-top: 35px;
+}

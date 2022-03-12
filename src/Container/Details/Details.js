@@ -5,6 +5,8 @@ import classes from "./Details.module.css";
 import MovieRating from "../../Components/Details/MovieRating/MovieRating";
 import GenreIcons from "../../Components/Details/GenreIcons/GenreIcons";
 import MovieImage from "../../Components/Details/MovieImage/MovieImage";
+import MovieWrittenDetails from "../../Components/Details/MovieWrittenDetails/MovieWrittenDetails";
+import MoviePlot from "../../Components/Details/MoviePlot/MoviePlot";
 
 function Details() {
   return (
@@ -17,11 +19,15 @@ function Details() {
             <FavBtn />
           </div>
           <MovieRating />
+          <MovieWrittenDetails/>
+          <MoviePlot/>
         </div>
         <div>
           <MovieImage />
           <GenreIcons /> 
         </div>
+
+        
       </div>
     
     </div>
