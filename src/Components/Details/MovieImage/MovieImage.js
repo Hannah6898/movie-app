@@ -1,10 +1,10 @@
 import React from "react";
 import classes from "./MovieImage.module.css";
 
-function MovieImage() {
+function MovieImage(props) {
   return (
     <div className={classes.image}>
-      <img src="https://m.media-amazon.com/images/M/MV5BOGUyZDUxZjEtMmIzMC00MzlmLTg4MGItZWJmMzBhZjE0Mjc1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"></img>
+      <img src={props.details.Poster}></img>
     </div>
   );
 }

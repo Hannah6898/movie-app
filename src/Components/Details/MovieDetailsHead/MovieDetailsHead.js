@@ -1,11 +1,12 @@
 import React from "react";
 import classes from "./MovieDetailsHead.module.css";
 
-function MovieDetailsHead() {
+function MovieDetailsHead(props) {
+
   return (
     <div className={classes.header}>
-      <h1>The Social Network</h1>
-      <h2>2010</h2>
+      <h1>{props.details.Title}</h1>
+      <h2>{props.details.Year}</h2>
     </div>
   );
 }

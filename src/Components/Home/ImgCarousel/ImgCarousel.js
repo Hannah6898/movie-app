@@ -3,6 +3,7 @@ import classes from "./ImgCarousel.module.css";
 import Movie from "./Movie/Movie"
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 function ImgCarousel(props) {
 
   return (
@@ -11,7 +12,8 @@ function ImgCarousel(props) {
       <div className="container-fluid image-carousel">
         <div className="row">
           <div className="d-flex justify-content-start movies">
-         <Movie data={props.data}/>
+            {props.movie}
+         {/* <Movie data={props.data} getMovieDetails={props.getMovieDetails}/> */}
          </div>
         </div>
       </div>

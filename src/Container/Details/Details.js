@@ -7,24 +7,28 @@ import GenreIcons from "../../Components/Details/GenreIcons/GenreIcons";
 import MovieImage from "../../Components/Details/MovieImage/MovieImage";
 import MovieWrittenDetails from "../../Components/Details/MovieWrittenDetails/MovieWrittenDetails";
 import MoviePlot from "../../Components/Details/MoviePlot/MoviePlot";
+import {Link} from "react-router-dom";
 
-function Details() {
+function Details(props) {
+  console.log(props.details)
   return (
     <div>
+      <Link to="/">
       <button className={classes.backbtn}>Back</button>
+      </Link>
       <div className={classes.container}>
         <div>
           <div className="navbar">
-            <MovieDetailsHead />
-            <FavBtn />
+            <MovieDetailsHead details={props.details}/>
+            <FavBtn handleFavouritesClick={props.handleFavouritesClick}/>
           </div>
-          <MovieRating />
-          <MovieWrittenDetails/>
-          <MoviePlot/>
+          <MovieRating details={props.details}/>
+          <MovieWrittenDetails details={props.details}/>
+          <MoviePlot details={props.details}/>
         </div>
         <div>
-          <MovieImage />
-          <GenreIcons /> 
+          <MovieImage details={props.details}/>
+          <GenreIcons details={props.details}/> 
         </div>
 
         

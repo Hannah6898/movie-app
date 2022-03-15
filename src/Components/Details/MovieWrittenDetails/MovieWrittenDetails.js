@@ -1,16 +1,16 @@
 import React from "react";
 import classes from "./MovieWrittenDetails.module.css";
 
-function MovieWrittenDetails() {
+function MovieWrittenDetails(props) {
   return (
     <div>
       <div className={classes.wrapper}>
         <p>Director</p>
-        <p>Nora Fingscheidt</p>
+        <p>{props.details.Director}</p>
         <p>Writer</p>
-        <p>Peter Craig, Hillary Seitz, Courtenay Miles</p>
+        <p>{props.details.Writer}</p>
         <p>Stars</p>
-        <p>Sandra Bullock, Viola Davis, Vincent D'Onofrio</p>
+        <p>{props.details.Actors}</p>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import React from "react";
 import classes from "./FavBtn.module.css"
 
-function FavBtn() {
+function FavBtn(props) {
   return (
     <div className={classes.favourite}>
-      <button className={classes.favouritebtn}>Add to Favourties</button>
+      <button className={classes.favouritebtn} onClick={props.handleFavouritesClick}>Add to Favourties</button>
     </div>
   );
 }
