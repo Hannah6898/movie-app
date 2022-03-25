@@ -38,7 +38,6 @@ function App() {
     });
   }
 
-  //Add to favourites function not working
   const handleFavouritesClick = (movie)=>{
     const newFavouritesList = [...favourites, movie]
     setFavourites(newFavouritesList);

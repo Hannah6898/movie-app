@@ -1,5 +1,5 @@
 import React from "react";
-// import classes from "./Favourites.module.css";
+import classes from "./Favourites.module.css";
 
 function Favourties(props) {
   console.log(props.favourites);
@@ -11,7 +11,7 @@ function Favourties(props) {
       <img
         src={movie.Poster}
         alt={movie.Title}
-        // className={classes.img}
+        className={classes.img}
       ></img>
       </div>
     ));
