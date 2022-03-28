@@ -27,7 +27,9 @@ function Details(props) {
         </div>
         <div>
           <MovieImage details={props.details}/>
+          <div className="d-flex justify-content-start">
           <GenreIcons details={props.details}/> 
+          </div>
         </div>
 
         
