@@ -6,6 +6,7 @@
     border-radius: 10px;
     font-size: 18px;
     transition: 0.2s;
+    margin-right: 10px;
     }
     .favouritebtn:hover{
     background-color: #F5CA37;
