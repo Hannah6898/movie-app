@@ -7,7 +7,7 @@ function Movie(props) {
     return null;
   } else {
     return props.data.map((movie, i) => (
-      <div className="m-3" key={movie.imdbID} onClick={()=>props.getMovieDetails(movie)}>
+      <div className="m-3 " key={movie.imdbID} onClick={()=>props.getMovieDetails(movie)}>
         <Link to="/details">
       <img
         src={movie.Poster}

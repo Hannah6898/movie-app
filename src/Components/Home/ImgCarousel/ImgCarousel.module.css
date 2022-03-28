@@ -2,7 +2,7 @@
     color: white;
 }
 
-.image-carousel{
+.wrapper{
     overflow-x: auto;
     flex-wrap: nowrap;
 }
