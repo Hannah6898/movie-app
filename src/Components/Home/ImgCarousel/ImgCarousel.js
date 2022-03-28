@@ -1,22 +1,17 @@
 import React from "react";
 import classes from "./ImgCarousel.module.css";
-import Movie from "./Movie/Movie"
 import "bootstrap/dist/css/bootstrap.min.css";
-
 
 function ImgCarousel(props) {
 
   return (
     <div>
       <h2 className={classes.heading}>{props.heading}</h2>
-      <div className="container-fluid image-carousel">
-        <div className="row">
-          <div className="d-flex justify-content-start movies">
+        <div className="row image-carousel border border-white">
+          <div className="d-flex justify-content-start p-0">
             {props.movie}
-         {/* <Movie data={props.data} getMovieDetails={props.getMovieDetails}/> */}
          </div>
         </div>
-      </div>
     </div>
   );
 }
