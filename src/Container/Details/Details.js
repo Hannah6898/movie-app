@@ -10,10 +10,11 @@ import MoviePlot from "../../Components/Details/MoviePlot/MoviePlot";
 import { Link } from "react-router-dom";
 
 function Details(props) {
+  console.log(props.details)
   return (
     <div>
       <Link to="/">
-        <button className={classes.backbtn}>Back</button>
+        <button className={classes.backbtn} onClick={()=>props.setDisableFav(false)}>Back</button>
       </Link>
       <div className={classes.container}>
         <div>
@@ -22,6 +23,7 @@ function Details(props) {
             <FavBtn
               handleFavouritesClick={props.handleFavouritesClick}
               details={props.details}
+              disableFav={props.disableFav}
             />
           </div>
           <MovieRating details={props.details} />

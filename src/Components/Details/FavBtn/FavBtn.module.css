@@ -12,3 +12,8 @@
     background-color: #F5CA37;
     color: #161924;
     }
+
+    .favouritebtn:disabled{
+    background-color:#F5CA37;
+    color: #161924;
+    }

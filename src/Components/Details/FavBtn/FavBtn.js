@@ -5,6 +5,7 @@ function FavBtn(props) {
   return (
     <div className={classes.favourite}>
       <button
+        disabled={props.disableFav}
         className={classes.favouritebtn}
         onClick={() => props.handleFavouritesClick(props.details)}
       >

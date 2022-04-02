@@ -3,6 +3,10 @@
     font-size: 18px;
 }
 
+.wrapper .heading {
+    font-weight: bolder; 
+}
+
 .wrapper {
     margin-top: 55px;
     display: grid;

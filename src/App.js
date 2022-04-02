@@ -10,6 +10,7 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [favourites, setFavourites] = useState([]);
   const [details, setDetails] = useState([]);
+  const [disableFav, setDisableFav]= useState(false);
 
   const getMovieRequest = (searchValue) => {
     fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=ae3fd08d`)
@@ -44,8 +45,7 @@ function App() {
       return newFavouritesList;
     } else {
       setFavourites(newFavouritesList);
-      console.log(favourites);
-      console.log(newFavouritesList);
+      setDisableFav(true)
     }
   };
 
@@ -70,6 +70,8 @@ function App() {
               <Details
                 details={details}
                 handleFavouritesClick={handleFavouritesClick}
+                disableFav= {disableFav}
+                setDisableFav={setDisableFav}
               />
             }
           />
