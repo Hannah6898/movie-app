@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./MovieRating.module.css"
+import classes from "./MovieRating.module.css";
 
 function MovieRating(props) {
   return (

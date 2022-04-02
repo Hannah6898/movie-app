@@ -6,8 +6,7 @@ function MoviePlot(props) {
     <div>
       <div className={classes.container}>
         <p className={classes.title}>Plot</p>
-        <p>{props.details.Plot}
-        </p>
+        <p>{props.details.Plot}</p>
       </div>
     </div>
   );

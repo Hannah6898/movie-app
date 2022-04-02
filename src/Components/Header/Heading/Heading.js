@@ -4,7 +4,7 @@ import classes from "./Heading.module.css";
 function Heading() {
   return (
     <div>
-      <h1 className={classes.title} >Movie App</h1>
+      <h1 className={classes.title}>Movie App</h1>
     </div>
   );
 }

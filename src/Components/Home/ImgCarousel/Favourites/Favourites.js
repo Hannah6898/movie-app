@@ -8,11 +8,7 @@ function Favourties(props) {
   } else {
     return props.favourites.map((movie, i) => (
       <div className="m-3" key={movie.imdbID}>
-      <img
-        src={movie.Poster}
-        alt={movie.Title}
-        className={classes.img}
-      ></img>
+        <img src={movie.Poster} alt={movie.Title} className={classes.img}></img>
       </div>
     ));
   }

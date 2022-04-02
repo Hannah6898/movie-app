@@ -7,9 +7,7 @@ function ImgCarousel(props) {
     <div>
       <h2 className={classes.heading}>{props.heading}</h2>
       <div className={classes.wrapper}>
-        <div className=" d-flex justify-content-start">
-          {props.movie}
-        </div>
+        <div className=" d-flex justify-content-start">{props.movie}</div>
       </div>
     </div>
   );
