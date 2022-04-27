@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./GenreIcons.module.css";
 
 function GenreIcons(props) {
-  console.log(props.details)
+  // console.log(props.details)
 return(<div></div>)
 
   // if (props.details === undefined) {

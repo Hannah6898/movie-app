@@ -4,13 +4,19 @@ import HomePage from "./Container//HomePage/HomePage";
 import Details from "./Container/Details/Details";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Header from "./Components/Header/Header";
+import {useDispatch} from "react-redux";
+import { addToFavourites } from "./Redux/Reducers/FavouritesSlice";
+import {getMovieDetailsPage} from "./Redux/Reducers/MovieDetailsSlice"
+import {getMovies} from './Redux/Reducers/MovieSearchSlice'
 
 function App() {
-  const [data, setData] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [favourites, setFavourites] = useState([]);
   const [details, setDetails] = useState([]);
   const [disableFav, setDisableFav]= useState(false);
+
+  const dispatch = useDispatch();
 
   const getMovieRequest = (searchValue) => {
     fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=ae3fd08d`)
@@ -19,9 +25,10 @@ function App() {
       })
       .then((data) => {
         if (data.Search) {
-          setData(data.Search);
+          setMovies(data.Search);
         }
       });
+      dispatch(getMovies(movies))
   };
 
   //Get data
@@ -37,6 +44,7 @@ function App() {
       .then((data) => {
         setDetails(data);
       });
+      dispatch(getMovieDetailsPage(details))
   };
 
   const handleFavouritesClick = (movie) => {
@@ -47,6 +55,7 @@ function App() {
       setFavourites(newFavouritesList);
       setDisableFav(true)
     }
+    dispatch(addToFavourites(movie))
   };
 
   return (
@@ -58,9 +67,8 @@ function App() {
             path="/"
             element={
               <HomePage
-                data={data}
+                data={movies}
                 getMovieDetails={getMovieDetails}
-                favourites={favourites}
               />
             }
           />
@@ -68,7 +76,6 @@ function App() {
             path="/details"
             element={
               <Details
-                details={details}
                 handleFavouritesClick={handleFavouritesClick}
                 disableFav= {disableFav}
                 setDisableFav={setDisableFav}

@@ -10,7 +10,6 @@ import MoviePlot from "../../Components/Details/MoviePlot/MoviePlot";
 import { Link } from "react-router-dom";
 
 function Details(props) {
-  console.log(props.details)
   return (
     <div>
       <Link to="/">
@@ -19,21 +18,20 @@ function Details(props) {
       <div className={classes.container}>
         <div>
           <div className="navbar">
-            <MovieDetailsHead details={props.details} />
+            <MovieDetailsHead/>
             <FavBtn
               handleFavouritesClick={props.handleFavouritesClick}
-              details={props.details}
               disableFav={props.disableFav}
             />
           </div>
-          <MovieRating details={props.details} />
-          <MovieWrittenDetails details={props.details} />
-          <MoviePlot details={props.details} />
+          <MovieRating/>
+          <MovieWrittenDetails/>
+          <MoviePlot/>
         </div>
         <div>
-          <MovieImage details={props.details} />
+          <MovieImage/>
           <div className="d-flex justify-content-start">
-            <GenreIcons details={props.details} />
+            <GenreIcons/>
           </div>
         </div>
       </div>
