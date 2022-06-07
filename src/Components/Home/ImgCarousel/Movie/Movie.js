@@ -6,16 +6,13 @@ import {getMovies} from '../../../../Redux/Reducers/MovieSearchSlice'
 
 function Movie(props) {
   const movies = useSelector(getMovies)
-  // const movieList = Object.values(movies.payload.movie);
-  console.log(movies)
-  // console.log(movieList)
+  const movieList = Object.values(movies.payload.movieSearch.movies);
 
-  if (props.data === undefined) {
+  if (movieList=== undefined) {
     return null;
   } else {
-    // const movieList = Object.values(movies.payload.movies);
-    // console.log(movieList)
-    return props.data.map((movie, i) => (
+    return movieList.map((movie, i) => {
+      return movie.Poster == "N/A"? null :
       <div
         className="m-3 "
         key={movie.imdbID}
@@ -29,8 +26,11 @@ function Movie(props) {
           ></img>
         </Link>
       </div>
-    ));
+    });
   }
 }
+
+
+
 
 export default Movie;
