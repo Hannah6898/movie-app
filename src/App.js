@@ -15,6 +15,7 @@ function App() {
   const [favourites, setFavourites] = useState([]);
   const [details, setDetails] = useState([]);
   const [disableFav, setDisableFav]= useState(false);
+  const [btnText, setBtnText]= useState("Add to Favourites");
 
   const dispatch = useDispatch();
 
@@ -26,6 +27,7 @@ function App() {
       .then((data) => {
         if (data.Search) {
           setMovies(data.Search);
+          console.log(movies)
         }
       });
       dispatch(getMovies(movies))
@@ -47,15 +49,19 @@ function App() {
       dispatch(getMovieDetailsPage(details))
   };
 
+
   const handleFavouritesClick = (movie) => {
     const newFavouritesList = [...favourites, movie];
     if (newFavouritesList.includes(movie.imdbID)) {
       return newFavouritesList;
     } else {
       setFavourites(newFavouritesList);
+      //push to the array to add 
       setDisableFav(true)
+      setBtnText("Added")
     }
     dispatch(addToFavourites(movie))
+ 
   };
 
   return (
@@ -78,6 +84,7 @@ function App() {
               <Details
                 handleFavouritesClick={handleFavouritesClick}
                 disableFav= {disableFav}
+                btnText={btnText}
                 setDisableFav={setDisableFav}
               />
             }

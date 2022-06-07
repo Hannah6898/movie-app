@@ -13,7 +13,7 @@ function FavBtn(props) {
         className={classes.favouritebtn}
         onClick={() => props.handleFavouritesClick(detail)}
       >
-        Add to Favourties
+        {props.btnText}
       </button>
     </div>
   );
