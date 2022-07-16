@@ -22,7 +22,7 @@ function App() {
 
   //Get Movie details from API
   const getMovieRequest = (searchValue) => {
-    fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=ae3fd08d`)
+    fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=${process.env.REACT_APP_API_KEY}`)
       .then((res) => {
         return res.json();
       })
@@ -41,14 +41,16 @@ function App() {
 
     //Get movie details 
     const getMovieDetails = (movie) => {
-      fetch(`http://www.omdbapi.com/?t=${movie.Title}&apikey=ae3fd08d`)
+      details.length = 0;
+      fetch(`http://www.omdbapi.com/?t=${movie.Title}&apikey=${process.env.REACT_APP_API_KEY}`)
         .then((res) => {
           return res.json();
         })
         .then((data) => {
           setDetails(data);
+          dispatch(getMovieDetailsPage(details))
         });
-        dispatch(getMovieDetailsPage(details))
+        
     };
   
   useEffect (()=> {
@@ -68,6 +70,14 @@ function App() {
     }
     dispatch(addToFavourites(movie))
   };
+
+  // //clear details array 
+  const handleBackBtn = ()=> {
+    
+  }
+
+  console.log(movie)
+  console.log(details)
 
   return (
     <div className="App m-5">
@@ -91,7 +101,7 @@ function App() {
                 handleFavouritesClick={handleFavouritesClick}
                 disableFav= {disableFav}
                 btnText={btnText}
-                setDisableFav={setDisableFav}
+                handleBackBtn= {handleBackBtn}
               />
             }
           />
