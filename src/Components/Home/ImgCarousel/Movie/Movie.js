@@ -8,7 +8,7 @@ function Movie(props) {
   const movies = useSelector(getMovies)
   const movieList = Object.values(movies.payload.movieSearch.movies);
 
-  if (movieList=== undefined) {
+  if (movieList === undefined) {
     return null;
   } else {
     return movieList.map((movie, i) => {
@@ -16,7 +16,7 @@ function Movie(props) {
       <div
         className="m-3 "
         key={movie.imdbID}
-        onClick={() => props.getMovieDetails(movie)}
+        onClick={() => props.setMovie(movie)}
       >
         <Link to="/details">
           <img

@@ -10,7 +10,8 @@ import {getMovieDetailsPage} from "./Redux/Reducers/MovieDetailsSlice"
 import {getMovies} from './Redux/Reducers/MovieSearchSlice'
 
 function App() {
-  const [movies, setMovies] = useState([]);
+  const [movieList, setMovieList] = useState([]);
+  const [movie, setMovie] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [favourites, setFavourites] = useState([]);
   const [details, setDetails] = useState([]);
@@ -19,6 +20,7 @@ function App() {
 
   const dispatch = useDispatch();
 
+  //Get Movie details from API
   const getMovieRequest = (searchValue) => {
     fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=ae3fd08d`)
       .then((res) => {
@@ -26,30 +28,34 @@ function App() {
       })
       .then((data) => {
         if (data.Search) {
-          setMovies(data.Search);
-          console.log(movies)
+          setMovieList(data.Search);
         }
       });
-      dispatch(getMovies(movies))
+      dispatch(getMovies(movieList))
   };
 
-  //Get data
+  //Call getMovies upon search name change 
   useEffect(() => {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
-  const getMovieDetails = (movie) => {
-    fetch(`http://www.omdbapi.com/?t=${movie.Title}&apikey=ae3fd08d`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setDetails(data);
-      });
-      dispatch(getMovieDetailsPage(details))
-  };
+    //Get movie details 
+    const getMovieDetails = (movie) => {
+      fetch(`http://www.omdbapi.com/?t=${movie.Title}&apikey=ae3fd08d`)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setDetails(data);
+        });
+        dispatch(getMovieDetailsPage(details))
+    };
+  
+  useEffect (()=> {
+    getMovieDetails(movie)
+  }, [movie])
 
-
+  //Add movie to favourties 
   const handleFavouritesClick = (movie) => {
     const newFavouritesList = [...favourites, movie];
     if (newFavouritesList.includes(movie.imdbID)) {
@@ -61,7 +67,6 @@ function App() {
       setBtnText("Added")
     }
     dispatch(addToFavourites(movie))
- 
   };
 
   return (
@@ -73,8 +78,9 @@ function App() {
             path="/"
             element={
               <HomePage
-                data={movies}
+                data={movieList}
                 getMovieDetails={getMovieDetails}
+                setMovie = {setMovie}
               />
             }
           />

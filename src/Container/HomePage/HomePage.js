@@ -11,7 +11,7 @@ function HomePage(props) {
         <ImgCarousel
           heading="Movies & TV "
           movie={
-            <Movie data={props.data} getMovieDetails={props.getMovieDetails} />
+            <Movie data={props.data} getMovieDetails={props.getMovieDetails} setMovie={props.setMovie}/>
           }
         />
       </div>

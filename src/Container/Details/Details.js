@@ -22,6 +22,7 @@ function Details(props) {
             <FavBtn
               handleFavouritesClick={props.handleFavouritesClick}
               disableFav={props.disableFav}
+              btnText={props.btnText}
             />
           </div>
           <MovieRating/>
